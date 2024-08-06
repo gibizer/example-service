@@ -3,25 +3,9 @@
   "extends": [
     "config:base"
   ],
-  "baseBranches": ["main"],
-  "useBaseBranchConfig": "merge",
-  "dependencyDashboard": true,
-  "enabledManagers": ["gomod"],
-  "postUpdateOptions": ["gomodTidy"],
-  "constraints": {
-    "go": "1.20"
-  },
-  "schedule":[
-    "every weekend"
-  ],
   "packageRules": [
     {
       "matchPackageNames": ["github.com/gibizer/example-lib"]
     }
-  ],
-  "postUpgradeTasks": {
-    "commands": ["go mod tidy"],
-    "fileFilters": ["**/go.mod", "**/go.sum", "**/*.go", "**/*.yaml"],
-    "executionMode": "update"
-  }
+  ]
 }
