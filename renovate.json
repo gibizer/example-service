@@ -5,7 +5,13 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["github.com/gibizer/example-lib"]
+      "matchPackageNames": ["github.com/gibizer/example-lib"],
+      "enabled": true
     }
-  ]
+  ],
+  "postUpgradeTasks": {
+    "commands": ["foobar", "go get github.com/gibizer/example-lib@stable"],
+    "fileFilters": ["**/go.mod", "**/go.sum", "**/*.go", "**/*.yaml"],
+    "executionMode": "update"
+  }
 }
