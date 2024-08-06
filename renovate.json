@@ -3,9 +3,17 @@
   "extends": [
     "config:base"
   ],
+  "commitMessageExtra": "",
+  "prBodyColumns": ["Package"],
   "packageRules": [
     {
-      "matchPackageNames": ["github.com/gibizer/example-lib"]
+      "matchPackageNames": ["github.com/gibizer/example-lib"],
+      "enabled": true
     }
-  ]
+  ],
+  "postUpgradeTasks": {
+    "commands": ["go get github.com/gibizer/example-lib@stable", "go mod tidy"],
+    "fileFilters": ["**/go.mod", "**/go.sum", "**/*.go", "**/*.yaml"],
+    "executionMode": "update"
+  }
 }
